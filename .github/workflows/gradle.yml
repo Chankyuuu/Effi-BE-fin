@@ -47,6 +47,9 @@ jobs:
       
     - name: Build with Gradle Wrapper
       run: ./gradlew build -x test
+      env:
+        AWS_DB_URL: ${{ secrets.AWS_DB_URL }}
+        AWS_DB_PASSWORD: ${{ secrets.AWS_DB_PASSWORD }}
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
