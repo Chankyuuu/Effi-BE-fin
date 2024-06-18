@@ -33,6 +33,15 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
+    - name: Create jwt.yml file
+      run: |
+        mkdir -p ./src/main/resources
+        touch ./src/main/resources/jwt.yml
+        echo "secret-key: ${{ secrets.JWT_KEY }}" > ./src/main/resources/jwt.yml
+        echo "expiration-minutes: 30" >> ./src/main/resources/jwt.yml
+        echo "refresh-expiration-hours: 24" >> ./src/main/resources/jwt.yml
+        echo "issuer: effi" >> ./src/main/resources/jwt.yml
+
     - name: set gradlew permissions
       run: chmod +x gradlew
       
