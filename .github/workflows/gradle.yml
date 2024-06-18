@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: effi
-        path: build/libs/effi.jar
+        path: build/libs/
 
     # 배포
   deploy:
