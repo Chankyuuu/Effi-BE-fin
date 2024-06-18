@@ -36,7 +36,4 @@ out/
 ### VS Code ###
 .vscode/
 
-## jwt token ##
-/src/main/resources/jwt.yml
-
 .idea/
