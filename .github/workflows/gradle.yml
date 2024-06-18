@@ -46,24 +46,24 @@ jobs:
         path: build/libs/effi.jar
 
     # 배포
-    deploy:
-      needs : build
-      runs-on: ubuntu-latest
+  deploy:
+    needs : build
+    runs-on: ubuntu-latest
 
-      steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: effi
-          path: build/libs/
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
+       with:
+        name: effi
+        path: build/libs/
 
-      - name: Deploy to EC2
-        run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
-          chmod 600 private_key.pem
-          scp -i private_key.pem -o StrictHostKeyChecking=no build/libs/effi.jar ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/${{ secrets.EC2_USERNAME }}/effi.jar
-          ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "pgrep java | xargs kill -9; nohup java -jar /home/${{ secrets.EC2_USERNAME }}/effi.jar > app.log 2>&1 &"
-          rm -f private_key.pem
+    - name: Deploy to EC2
+      run: |
+        echo "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
+        chmod 600 private_key.pem
+        scp -i private_key.pem -o StrictHostKeyChecking=no build/libs/effi.jar ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/${{ secrets.EC2_USERNAME }}/effi.jar
+        ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "pgrep java | xargs kill -9; nohup java -jar /home/${{ secrets.EC2_USERNAME }}/effi.jar > app.log 2>&1 &"
+        rm -f private_key.pem
 
 
 
