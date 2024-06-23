@@ -111,7 +111,7 @@ jobs:
         aws-region: ap-northeast-2
 
     - name: upload to s3
-      run: aws s3 sync cp --region ap-northeast-2 ./effi-be.zip s3://effi-fe-s3/effi-be.zip
+      run: aws s3 cp --region ap-northeast-2 ./effi-be.zip s3://effi-fe-s3/effi-be.zip
 
     # AWS CodeDeploy에 배포
     - name: Deploy
