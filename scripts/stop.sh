@@ -3,8 +3,6 @@
 PROJECT_ROOT="/home/ec2-user/app/deploy"
 JAR_FILE="$PROJECT_ROOT/build/libs/effi-0.0.1-SNAPSHOT.jar"
 
-
-chmod 664 /home/ec2-user/app/deploy/deploy.log
 DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
 
 TIME_NOW=$(date +%c)

@@ -5,6 +5,10 @@ files:
     destination: /home/ec2-user/app/deploy
 
 hooks:
+  BeforeInstall:
+    - location: scripts/setup.sh
+      timeout: 60
+      runas: ec2-user
   AfterInstall:
     - location: scripts/stop.sh
       timeout: 60
