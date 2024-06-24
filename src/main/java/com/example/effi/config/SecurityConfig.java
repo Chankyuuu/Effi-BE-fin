@@ -37,6 +37,7 @@ public class SecurityConfig {
             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                 CorsConfiguration config = new CorsConfiguration();
                 config.setAllowedOrigins(Collections.singletonList("http://effi-fe-s3.s3-website.ap-northeast-2.amazonaws.com"));
+                config.setAllowedOrigins(Collections.singletonList("http://d37pg5a63cp6p.cloudfront.net"));
                 config.setAllowedMethods(Collections.singletonList("*"));
                 config.setAllowCredentials(true);
                 config.setAllowedHeaders(Collections.singletonList("*"));
