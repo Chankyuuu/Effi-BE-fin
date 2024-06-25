@@ -40,6 +40,7 @@ public class SecurityConfig {
                 config.setAllowedOrigins(Collections.singletonList("http://d37pg5a63cp6p.cloudfront.net"));
                 config.setAllowedOrigins(Collections.singletonList("http://effiplanner.com"));
                 config.setAllowedOrigins(Collections.singletonList("https://effiplanner.com"));
+                config.setAllowedOrigins(Collections.singletonList("http://43.203.76.140"));
                 config.setAllowedMethods(Collections.singletonList("*"));
                 config.setAllowCredentials(true);
                 config.setAllowedHeaders(Collections.singletonList("*"));
