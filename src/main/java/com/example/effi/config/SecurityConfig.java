@@ -1,7 +1,9 @@
 package com.example.effi.config;
 
+import java.util.ArrayList;
 import java.util.Collections;
 
+import org.hibernate.mapping.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -36,11 +38,13 @@ public class SecurityConfig {
             @Override
             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                 CorsConfiguration config = new CorsConfiguration();
-                config.setAllowedOrigins(Collections.singletonList("http://effi-fe-s3.s3-website.ap-northeast-2.amazonaws.com"));
-                config.setAllowedOrigins(Collections.singletonList("http://d37pg5a63cp6p.cloudfront.net"));
-                config.setAllowedOrigins(Collections.singletonList("http://effiplanner.com"));
-                config.setAllowedOrigins(Collections.singletonList("https://effiplanner.com"));
-                config.setAllowedOrigins(Collections.singletonList("http://43.203.76.140"));
+                java.util.List<String> allowedOrigins = new ArrayList<>();
+                allowedOrigins.add("http://effi-fe-s3.s3-website.ap-northeast-2.amazonaws.com");
+                allowedOrigins.add("http://d37pg5a63cp6p.cloudfront.net");
+                allowedOrigins.add("http://effiplanner.com");
+                allowedOrigins.add("https://effiplanner.com");
+                allowedOrigins.add("http://43.203.76.140");
+                config.setAllowedOrigins(allowedOrigins);
                 config.setAllowedMethods(Collections.singletonList("*"));
                 config.setAllowCredentials(true);
                 config.setAllowedHeaders(Collections.singletonList("*"));
