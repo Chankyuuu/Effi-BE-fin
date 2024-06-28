@@ -44,6 +44,7 @@ public class SecurityConfig {
                 allowedOrigins.add("http://effiplanner.com");
                 allowedOrigins.add("https://effiplanner.com");
                 allowedOrigins.add("http://43.203.76.140");
+                allowedOrigins.add("https://effi-be.com");
                 config.setAllowedOrigins(allowedOrigins);
                 config.setAllowedMethods(Collections.singletonList("*"));
                 config.setAllowCredentials(true);
